@@ -21,5 +21,9 @@ export const MainPage = () => {
                 Abecedario
             </button>
         </main>
+
+        <div id='extraButton' onClick={() => { navigation('/morseReader') }}>
+
+        </div>
     </>
 }
