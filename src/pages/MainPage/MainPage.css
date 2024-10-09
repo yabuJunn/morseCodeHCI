@@ -1,0 +1,38 @@
+body {
+    margin: 0;
+    display: flex;
+}
+
+.page {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+
+    gap: 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#superiorMenu {
+    width: 90%;
+    height: 45%;
+
+    gap: 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#superiorMenu button {
+    width: 100%;
+    height: 100%;
+}
+
+#abcButton {
+    width: 90%;
+    height: 45%;
+}
