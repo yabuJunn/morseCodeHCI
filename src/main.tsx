@@ -8,6 +8,9 @@ import {
 //Import Pages
 import App from './App'
 import { MainPage } from './pages/MainPage/MainPage';
+import { LearnPage } from './pages/LearnPage/LearnPage';
+import { PracticePage } from './pages/PracticePage/PracticePage';
+import { AlphabetPage } from './pages/AlphabetPage/AlphabetPage';
 
 const router = createBrowserRouter([
   {
@@ -16,6 +19,18 @@ const router = createBrowserRouter([
   }, {
     path: "/",
     element: <MainPage></MainPage>,
+  },
+  {
+    path: "/learn",
+    element: <LearnPage></LearnPage>,
+  },
+  {
+    path: "/practice",
+    element: <PracticePage></PracticePage>,
+  },
+  {
+    path: "/alphabet",
+    element: <AlphabetPage></AlphabetPage>,
   },
 ]);
 
