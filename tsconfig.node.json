@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2023"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "isolatedModules": true,
+    "moduleDetection": "force",
+    
+    // Cambia noEmit a false
+    "noEmit": false, // Cambia esto a false para permitir la emisión de archivos
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    
+    // Agregar esto:
+    "composite": true // Necesario para proyectos referenciados
+  },
+  "include": ["vite.config.ts"]
+}
