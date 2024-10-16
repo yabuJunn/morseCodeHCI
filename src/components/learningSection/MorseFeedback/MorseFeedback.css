@@ -1,0 +1,24 @@
+#MorseFeedbackContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.point {
+    width: 38px;
+    height: 38px;
+    border-radius: 100%;
+
+    background-color: #B9B6B6;
+    margin: 8px;
+}
+
+.line {
+    width: 80px;
+    height: 19px;
+
+    border-radius: 10.5px;
+    background-color: #B9B6B6;
+
+    margin: 8px;
+}
