@@ -5,33 +5,14 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
-//Import Pages
-import App from './App'
-import { MainPage } from './pages/MainPage/MainPage';
-import { LearnPage } from './pages/LearnPage/LearnPage';
-import { PracticePage } from './pages/PracticePage/PracticePage';
-import { AlphabetPage } from './pages/AlphabetPage/AlphabetPage';
+//Import Routers
+import mainRoutes from './routes/mainRoutes';
+import { learningRouter } from './routes/learningRoute';
+
 
 const router = createBrowserRouter([
-  {
-    path: "/morseReader",
-    element: <App></App>,
-  }, {
-    path: "/",
-    element: <MainPage></MainPage>,
-  },
-  {
-    path: "/learn",
-    element: <LearnPage></LearnPage>,
-  },
-  {
-    path: "/practice",
-    element: <PracticePage></PracticePage>,
-  },
-  {
-    path: "/alphabet",
-    element: <AlphabetPage></AlphabetPage>,
-  },
+  ...learningRouter,
+  ...mainRoutes,
 ]);
 
 createRoot(document.getElementById('root')!).render(
