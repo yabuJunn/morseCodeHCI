@@ -8,7 +8,7 @@ export const MainPage = () => {
     return <>
         <main className='page'>
             <div id='superiorMenu'>
-                <button id='learnButton' onClick={() => { navigation('/learn') }}>
+                <button id='learnButton' onClick={() => { navigation('/letterA') }}>
                     Aprender
                 </button>
 

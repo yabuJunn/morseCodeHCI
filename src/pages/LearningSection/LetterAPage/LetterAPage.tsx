@@ -50,6 +50,7 @@ export const LetterAPage = () => {
     const handleMorseInput = (type: 'dot' | 'dash') => {
         console.log(type)
         console.log(currentChar)
+        console.log(buttonStatus)
         setCurrentChar((prevChar) => {
             const updatedChar = prevChar + morseCodeMap[type];
 
@@ -65,7 +66,9 @@ export const LetterAPage = () => {
                         navigate('/')
                     }, 3000);
                 } else {
-                    console.log(currentChar)
+                    alert('Error')
+                    setCurrentChar('')
+                    setDetectedLetter('');
                 }
 
                 setCurrentChar(''); // Reinicia el carácter Morse para la siguiente entrada
@@ -116,6 +119,7 @@ export const LetterAPage = () => {
             <MorseFeedback morse={'.-'}></MorseFeedback>
 
             {/* Mostrar feedback en la pantalla cuando se detecta la letra A */}
+            {<p>{currentChar}</p>}
             {detectedLetter === 'A' && <p>¡Has ingresado la letra A!</p>}
         </main>
     );
