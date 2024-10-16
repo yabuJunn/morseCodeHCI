@@ -1,0 +1,62 @@
+#LettersCarousel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#previousLetter {
+    margin-right: 12px;
+}
+
+#previousLetter p {
+    color: rgba(28, 28, 28, 0.50);
+    text-align: center;
+    font-family: "DM Sans";
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -2.046px;
+
+    margin: 0;
+}
+
+#actualLetter {
+    width: 80px;
+    height: 80px;
+    background-color: #313fbc;
+    border-radius: 8px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#actualLetter p {
+    color: #FFF;
+    text-align: center;
+    font-family: "DM Sans";
+    font-size: 70px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+
+    margin: 0;
+}
+
+#followingLetter {
+    margin-left: 12px;
+}
+
+#followingLetter p {
+    color: rgba(28, 28, 28, 0.50);
+    text-align: center;
+    font-family: "DM Sans";
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -2.046px;
+
+    margin: 0;
+}

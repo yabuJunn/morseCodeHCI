@@ -22,6 +22,7 @@ const App = () => {
 
     socket.on('buttonStatus', (data: ButtonStatusType) => {
       setButtonStatus(data)
+      console.log(buttonStatus)
       handleButtonPress(data)
     });
 
