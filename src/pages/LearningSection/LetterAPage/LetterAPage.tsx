@@ -116,8 +116,8 @@ export const LetterAPage = () => {
 
     return (
         <main className='page' id='LetterAPage'>
-            <LettersCarousel previousLetter={''} actualLetter={'A'} followingLetter={'E'}></LettersCarousel>
-            <LetterCard text={'Abeja'} image={letterAImage} type={'letter'}></LetterCard>
+            <LettersCarousel previousLetter={''} actualLetter={'A'} followingLetter={'E'} backgroundColor={''}></LettersCarousel>
+            <LetterCard text={'Abeja'} image={letterAImage} type={'letter'} backgroundColor={''}></LetterCard>
             <MorseFeedback morse={'.-'} currentChar={currentChar}></MorseFeedback>
         </main>
     );

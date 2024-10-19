@@ -76,6 +76,39 @@ export const MorseFeedback = ({ morse, currentChar }: MorseFeedbackProps) => {
                 </div>
             }
             break
+        case morseLetters.O:
+            if (currentChar === "") {
+                return <div id="MorseFeedbackContainer">
+                    <div className='line'></div>
+                    <div className='line'></div>
+                    <div className='line'></div>
+                </div>
+            } else if (currentChar === "-") {
+                return <div id="MorseFeedbackContainer">
+                    <div className='line' style={{ backgroundColor: '#F0D867' }}></div>
+                    <div className='line'></div>
+                    <div className='line'></div>
+                </div>
+            } else if (currentChar === "--") {
+                return <div id="MorseFeedbackContainer">
+                    <div className='line' style={{ backgroundColor: '#F0D867' }}></div>
+                    <div className='line' style={{ backgroundColor: '#F0D867' }}></div>
+                    <div className='line'></div>
+                </div>
+            } else if (currentChar === "---") {
+                return <div id="MorseFeedbackContainer">
+                    <div className='line' style={{ backgroundColor: '#F0D867' }}></div>
+                    <div className='line' style={{ backgroundColor: '#F0D867' }}></div>
+                    <div className='line' style={{ backgroundColor: '#F0D867' }}></div>
+                </div>
+            } else {
+                return <div id="MorseFeedbackContainer">
+                    <div className='line'></div>
+                    <div className='line'></div>
+                    <div className='line'></div>
+                </div>
+            }
+            break
 
         default:
             break;

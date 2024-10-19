@@ -1,4 +1,4 @@
-import './LetterEPage.css'
+import './LetterOPage.css'
 
 import { useEffect, useState, useRef } from 'react';
 import { io } from 'socket.io-client';
@@ -8,7 +8,7 @@ import { MorseFeedback } from '../../../components/learningSection/MorseFeedback
 import { useNavigate } from 'react-router-dom';
 
 //Import Images
-import letterEImage from '../../../assets/png/letterE.png'
+import letterOImage from '../../../assets/png/letterO.png'
 
 interface ButtonStatusType {
     lineButton: number;
@@ -20,7 +20,7 @@ const morseCodeMap: Record<string, string> = {
     'dash': '-',
 };
 
-export const LetterEPage = () => {
+export const LetterOPage = () => {
     const navigate = useNavigate()
     const [buttonStatus, setButtonStatus] = useState<ButtonStatusType | undefined>()
     const [currentChar, setCurrentChar] = useState<string>('') // Carácter Morse actual
@@ -60,10 +60,10 @@ export const LetterEPage = () => {
             timeoutIdRef.current = setTimeout(() => {
                 const translatedChar = translateMorseToLetter(updatedChar);
 
-                if (translatedChar === 'E') {
-                    setDetectedLetter('E'); // Si se detecta "A", actualizamos el estado
+                if (translatedChar === 'O') {
+                    setDetectedLetter('O'); // Si se detecta "A", actualizamos el estado
                     setTimeout(() => {
-                        navigate('/letterO')
+                        navigate('/')
                     }, 500);
                 } else {
 
@@ -113,10 +113,10 @@ export const LetterEPage = () => {
     };
 
     return (
-        <main className='page' id='LetterEPage'>
-            <LettersCarousel previousLetter={'A'} actualLetter={'E'} followingLetter={'O'} backgroundColor={''}></LettersCarousel>
-            <LetterCard text={'Estrella'} image={letterEImage} type={'letter'} backgroundColor={''}></LetterCard>
-            <MorseFeedback morse={'.'} currentChar={currentChar}></MorseFeedback>
+        <main className='page' id='LetterOPage'>
+            <LettersCarousel previousLetter={'E'} actualLetter={'O'} followingLetter={'I'} backgroundColor={'#7FD6C3'}></LettersCarousel>
+            <LetterCard text={'Ovni'} image={letterOImage} type={'letter'} backgroundColor={'#7FD6C3'}></LetterCard>
+            <MorseFeedback morse={'---'} currentChar={currentChar}></MorseFeedback>
         </main>
     );
 }

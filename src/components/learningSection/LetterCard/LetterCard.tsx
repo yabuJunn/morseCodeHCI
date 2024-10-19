@@ -3,14 +3,15 @@ import './LetterCard.css'
 interface LetterCardProps {
     text: string,
     image: string,
-    type: "letter" | "check" | "error"
+    type: "letter" | "check" | "error",
+    backgroundColor: string
 }
 
-export const LetterCard = ({ text, image, type }: LetterCardProps) => {
+export const LetterCard = ({ text, image, type, backgroundColor }: LetterCardProps) => {
     switch (type) {
         case "letter":
             return <>
-                <div className='letterCard'>
+                <div className='letterCard' style={{ backgroundColor: backgroundColor }}>
                     <div className='imgSpace'>
                         <img src={image} alt="letterA" />
                     </div>

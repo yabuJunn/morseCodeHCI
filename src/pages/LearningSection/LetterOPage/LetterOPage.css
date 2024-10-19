@@ -1,0 +1,10 @@
+#LetterOPage {
+    background-image: url(../../../assets/svg/fondoVerde.svg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#LetterOPage p {
+    margin: 0;
+}

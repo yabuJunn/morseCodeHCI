@@ -3,18 +3,19 @@ import './LettersCarousel.css'
 interface LettersCarouselProps {
     previousLetter: string,
     actualLetter: string,
-    followingLetter: string
+    followingLetter: string,
+    backgroundColor: string
 }
 
 
-export const LettersCarousel = ({ previousLetter, actualLetter, followingLetter }: LettersCarouselProps) => {
+export const LettersCarousel = ({ previousLetter, actualLetter, followingLetter, backgroundColor }: LettersCarouselProps) => {
     return <>
         <div id="LettersCarousel">
             <div id='previousLetter'>
                 <p>{previousLetter}</p>
             </div>
 
-            <div id='actualLetter'>
+            <div id='actualLetter' style={{ backgroundColor: backgroundColor }}>
                 <p>{actualLetter}</p>
             </div>
 
