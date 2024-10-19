@@ -38,7 +38,7 @@ export const LetterAPage = () => {
     }, [])
 
     const handleButtonPress = (data: ButtonStatusType) => {
-        //console.log(buttonStatus, currentChar);
+        console.log(detectedLetter)
 
         if (data.lineButton === 1) {
             handleMorseInput('dash')
@@ -72,7 +72,7 @@ export const LetterAPage = () => {
                 }
 
                 setCurrentChar(''); // Reinicia el carácter Morse para la siguiente entrada
-            }, 1500);
+            }, 2500);
 
             return updatedChar;
         });
@@ -116,11 +116,7 @@ export const LetterAPage = () => {
         <main className='page' id='LetterAPage'>
             <LettersCarousel previousLetter={''} actualLetter={'A'} followingLetter={'E'}></LettersCarousel>
             <LetterCard></LetterCard>
-            <MorseFeedback morse={'.-'}></MorseFeedback>
-
-            {/* Mostrar feedback en la pantalla cuando se detecta la letra A */}
-            {<p>{currentChar}</p>}
-            {detectedLetter === 'A' && <p>¡Has ingresado la letra A!</p>}
+            <MorseFeedback morse={'.-'} currentChar={currentChar}></MorseFeedback>
         </main>
     );
 }

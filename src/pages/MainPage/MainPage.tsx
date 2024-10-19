@@ -6,7 +6,7 @@ export const MainPage = () => {
     const navigation = useNavigate()
 
     return <>
-        <main className='page'>
+        <main className='page' id='mainPage'>
             <div id='superiorMenu'>
                 <button id='learnButton' onClick={() => { navigation('/letterA') }}>
                     Aprender
@@ -18,7 +18,7 @@ export const MainPage = () => {
             </div>
 
             <button id='abcButton' onClick={() => { navigation('/alphabet') }}>
-                Abecedario
+                Abecedario, ABCDEFGHIJK
             </button>
         </main>
 

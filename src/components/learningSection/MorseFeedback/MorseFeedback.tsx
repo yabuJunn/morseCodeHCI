@@ -31,19 +31,37 @@ enum morseLetters {
 };
 
 interface MorseFeedbackProps {
-    morse: string
+    morse: string,
+    currentChar: string
 }
 
 
-export const MorseFeedback = ({ morse }: MorseFeedbackProps) => {
+export const MorseFeedback = ({ morse, currentChar }: MorseFeedbackProps) => {
 
     switch (morse) {
         case morseLetters.A:
-            return <div id="MorseFeedbackContainer">
-                <div className='point'></div>
-                <div className='line'></div>
-            </div>
-
+            if (currentChar === "") {
+                return <div id="MorseFeedbackContainer">
+                    <div className='point'></div>
+                    <div className='line'></div>
+                </div>
+            } else if (currentChar === ".") {
+                return <div id="MorseFeedbackContainer">
+                    <div className='point' style={{ backgroundColor: '#61D2FF' }}></div>
+                    <div className='line'></div>
+                </div>
+            } else if (currentChar === ".-") {
+                return <div id="MorseFeedbackContainer">
+                    <div className='point' style={{ backgroundColor: '#61D2FF' }}></div>
+                    <div className='line' style={{ backgroundColor: '#F0D867' }}></div>
+                </div>
+            } else {
+                return <div id="MorseFeedbackContainer">
+                    <div className='point'></div>
+                    <div className='line'></div>
+                </div>
+            }
+            break
 
         default:
             break;

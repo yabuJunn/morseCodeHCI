@@ -16,6 +16,13 @@ body {
     justify-content: center;
 }
 
+#mainPage {
+    background-image: url(../../assets/svg/fondoMain.svg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
 #superiorMenu {
     width: 90%;
     height: 45%;
@@ -30,11 +37,43 @@ body {
 #superiorMenu button {
     width: 100%;
     height: 100%;
+
+    border-radius: 31.95px;
+    border: 1px solid rgba(49, 62, 188, 0.25);
+    background: rgba(49, 62, 188, 0.61);
+    backdrop-filter: blur(11.699999809265137px);
+
+    color: #FFF;
+    text-align: center;
+    font-family: "DM Sans";
+    font-size: 76.712px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -3.068px;
+
+    cursor: pointer;
 }
 
 #abcButton {
     width: 90%;
     height: 45%;
+
+    border-radius: 31.95px;
+    border: 1px solid rgba(127, 214, 195, 0.35);
+    background: rgba(127, 214, 195, 0.60);
+    backdrop-filter: blur(11.699999809265137px);
+
+    color: #1C1C1C;
+    text-align: center;
+    font-family: "DM Sans";
+    font-size: 76.712px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -3.068px;
+
+    cursor: pointer;
 }
 
 #extraButton {
