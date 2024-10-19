@@ -1,0 +1,10 @@
+#LetterEPage {
+    background-image: url(../../../assets/svg/fondoAzul.svg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#LetterEPage p {
+    margin: 0;
+}

@@ -1,4 +1,5 @@
-import './LetterAPage.css'
+import './LetterEPage.css'
+
 import { useEffect, useState, useRef } from 'react';
 import { io } from 'socket.io-client';
 import { LetterCard } from '../../../components/learningSection/LetterCard/LetterCard'
@@ -7,7 +8,7 @@ import { MorseFeedback } from '../../../components/learningSection/MorseFeedback
 import { useNavigate } from 'react-router-dom';
 
 //Import Images
-import letterAImage from '../../../assets/png/letterA.png'
+import letterEImage from '../../../assets/png/letterE.png'
 
 interface ButtonStatusType {
     lineButton: number;
@@ -19,7 +20,7 @@ const morseCodeMap: Record<string, string> = {
     'dash': '-',
 };
 
-export const LetterAPage = () => {
+export const LetterEPage = () => {
     const navigate = useNavigate()
     const [buttonStatus, setButtonStatus] = useState<ButtonStatusType | undefined>()
     const [currentChar, setCurrentChar] = useState<string>('') // Carácter Morse actual
@@ -41,7 +42,6 @@ export const LetterAPage = () => {
     }, [])
 
     const handleButtonPress = (data: ButtonStatusType) => {
-        console.log(detectedLetter)
 
         if (data.lineButton === 1) {
             handleMorseInput('dash')
@@ -52,9 +52,6 @@ export const LetterAPage = () => {
 
     const handleMorseInput = (type: 'dot' | 'dash') => {
 
-        console.log(currentChar)
-        console.log(buttonStatus)
-
         setCurrentChar((prevChar) => {
             const updatedChar = prevChar + morseCodeMap[type];
 
@@ -63,12 +60,13 @@ export const LetterAPage = () => {
             timeoutIdRef.current = setTimeout(() => {
                 const translatedChar = translateMorseToLetter(updatedChar);
 
-                if (translatedChar === 'A') {
-                    setDetectedLetter('A'); // Si se detecta "A", actualizamos el estado
+                if (translatedChar === 'E') {
+                    setDetectedLetter('E'); // Si se detecta "A", actualizamos el estado
                     setTimeout(() => {
-                        navigate('/letterE')
+                        navigate('/')
                     }, 500);
                 } else {
+
                     setCurrentChar('')
                     setDetectedLetter('');
                 }
@@ -115,10 +113,10 @@ export const LetterAPage = () => {
     };
 
     return (
-        <main className='page' id='LetterAPage'>
-            <LettersCarousel previousLetter={''} actualLetter={'A'} followingLetter={'E'}></LettersCarousel>
-            <LetterCard text={'Abeja'} image={letterAImage} type={'letter'}></LetterCard>
-            <MorseFeedback morse={'.-'} currentChar={currentChar}></MorseFeedback>
+        <main className='page' id='LetterEPage'>
+            <LettersCarousel previousLetter={'A'} actualLetter={'E'} followingLetter={'O'}></LettersCarousel>
+            <LetterCard text={'Estrella'} image={letterEImage} type={'letter'}></LetterCard>
+            <MorseFeedback morse={'.'} currentChar={currentChar}></MorseFeedback>
         </main>
     );
 }
