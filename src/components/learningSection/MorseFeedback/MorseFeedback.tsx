@@ -61,6 +61,7 @@ export const MorseFeedback = ({ morse, currentChar }: MorseFeedbackProps) => {
                     <div className='line'></div>
                 </div>
             }
+
         case morseLetters.E:
             if (currentChar === "") {
                 return <div id="MorseFeedbackContainer">
@@ -75,7 +76,7 @@ export const MorseFeedback = ({ morse, currentChar }: MorseFeedbackProps) => {
                     <div className='point'></div>
                 </div>
             }
-            break
+
         case morseLetters.O:
             if (currentChar === "") {
                 return <div id="MorseFeedbackContainer">
@@ -108,7 +109,7 @@ export const MorseFeedback = ({ morse, currentChar }: MorseFeedbackProps) => {
                     <div className='line'></div>
                 </div>
             }
-            break
+
         case morseLetters.I:
             if (currentChar === "") {
                 return <div id="MorseFeedbackContainer">
@@ -131,6 +132,40 @@ export const MorseFeedback = ({ morse, currentChar }: MorseFeedbackProps) => {
                     <div className='point'></div>
                 </div>
             }
+
+        case morseLetters.S:
+            if (currentChar === "") {
+                return <div id="MorseFeedbackContainer">
+                    <div className='point'></div>
+                    <div className='point'></div>
+                    <div className='point'></div>
+                </div>
+            } else if (currentChar === ".") {
+                return <div id="MorseFeedbackContainer">
+                    <div className='point' style={{ backgroundColor: '#61D2FF' }}></div>
+                    <div className='point'></div>
+                    <div className='point'></div>
+                </div>
+            } else if (currentChar === "..") {
+                return <div id="MorseFeedbackContainer">
+                    <div className='point' style={{ backgroundColor: '#61D2FF' }}></div>
+                    <div className='point' style={{ backgroundColor: '#61D2FF' }}></div>
+                    <div className='point'></div>
+                </div>
+            } else if (currentChar === "...") {
+                return <div id="MorseFeedbackContainer">
+                    <div className='point' style={{ backgroundColor: '#61D2FF' }}></div>
+                    <div className='point' style={{ backgroundColor: '#61D2FF' }}></div>
+                    <div className='point' style={{ backgroundColor: '#61D2FF' }}></div>
+                </div>
+            } else {
+                return <div id="MorseFeedbackContainer">
+                    <div className='point'></div>
+                    <div className='point'></div>
+                    <div className='point'></div>
+                </div>
+            }
+
         default:
             break;
     }

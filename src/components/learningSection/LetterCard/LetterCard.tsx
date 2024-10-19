@@ -4,10 +4,12 @@ interface LetterCardProps {
     text: string,
     image: string,
     type: "letter" | "check" | "error",
-    backgroundColor: string
+    backgroundColor: string,
+    textColor: string,
+    spanColor: string
 }
 
-export const LetterCard = ({ text, image, type, backgroundColor }: LetterCardProps) => {
+export const LetterCard = ({ text, image, type, backgroundColor, textColor, spanColor }: LetterCardProps) => {
     switch (type) {
         case "letter":
             return <>
@@ -16,8 +18,8 @@ export const LetterCard = ({ text, image, type, backgroundColor }: LetterCardPro
                         <img src={image} alt="letterA" />
                     </div>
 
-                    <p>
-                        <span>{text.charAt(0)}</span>
+                    <p style={{ color: textColor }}>
+                        <span style={{ color: spanColor }}>{text.charAt(0)}</span>
                         {text.slice(1)}
                     </p>
                 </div>

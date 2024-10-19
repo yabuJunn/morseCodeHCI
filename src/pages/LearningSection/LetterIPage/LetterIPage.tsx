@@ -8,7 +8,7 @@ import { MorseFeedback } from '../../../components/learningSection/MorseFeedback
 import { useNavigate } from 'react-router-dom';
 
 //Import Images
-import letterOImage from '../../../assets/png/letterO.png'
+import letterImage from '../../../assets/png/letterI.png'
 
 interface ButtonStatusType {
     lineButton: number;
@@ -115,7 +115,7 @@ export const LetterIPage = () => {
     return (
         <main className='page' id='LetterIPage'>
             <LettersCarousel previousLetter={'O'} actualLetter={'I'} followingLetter={'S'} backgroundColor={''}></LettersCarousel>
-            <LetterCard text={'Insecto'} image={letterOImage} type={'letter'} backgroundColor={''}></LetterCard>
+            <LetterCard text={'Insecto'} image={letterImage} type={'letter'} backgroundColor={''} textColor={''} spanColor={''}></LetterCard>
             <MorseFeedback morse={'..'} currentChar={currentChar}></MorseFeedback>
         </main>
     );
