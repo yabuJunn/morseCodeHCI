@@ -6,6 +6,9 @@ import { LettersCarousel } from '../../../components/learningSection/LettersCaro
 import { MorseFeedback } from '../../../components/learningSection/MorseFeedback/MorseFeedback'
 import { useNavigate } from 'react-router-dom';
 
+//Import Images
+import letterAImage from '../../../assets/png/letterA.png'
+
 interface ButtonStatusType {
     lineButton: number;
     pointButton: number;
@@ -115,7 +118,7 @@ export const LetterAPage = () => {
     return (
         <main className='page' id='LetterAPage'>
             <LettersCarousel previousLetter={''} actualLetter={'A'} followingLetter={'E'}></LettersCarousel>
-            <LetterCard></LetterCard>
+            <LetterCard text={'Abeja'} image={letterAImage} type={'letter'}></LetterCard>
             <MorseFeedback morse={'.-'} currentChar={currentChar}></MorseFeedback>
         </main>
     );
