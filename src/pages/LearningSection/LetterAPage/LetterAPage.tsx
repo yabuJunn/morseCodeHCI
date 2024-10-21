@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 
 //Import Images
 import letterAImage from '../../../assets/png/letterA.png'
+import { correctEnum } from '../../../types/cardsMorse';
 
 interface ButtonStatusType {
     lineButton: number;
@@ -22,12 +23,13 @@ const morseCodeMap: Record<string, string> = {
 export const LetterAPage = () => {
     const navigate = useNavigate()
     const [buttonStatus, setButtonStatus] = useState<ButtonStatusType | undefined>()
-    const [currentChar, setCurrentChar] = useState<string>('') // Carácter Morse actual
-    const [detectedLetter, setDetectedLetter] = useState<string>('') // Letra detectada
+    const [currentChar, setCurrentChar] = useState<string>('')
     const timeoutIdRef = useRef<NodeJS.Timeout | null>(null)
 
+    const [correctStatus, setcorrectStatus] = useState<correctEnum>(correctEnum.undefined)
+
     useEffect(() => {
-        const socket = io('http://localhost:5050') // Se conecta al servidor que envía los datos
+        const socket = io('http://localhost:5050')
 
         socket.on('buttonStatus', (data: ButtonStatusType) => {
             setButtonStatus(data)
@@ -41,8 +43,6 @@ export const LetterAPage = () => {
     }, [])
 
     const handleButtonPress = (data: ButtonStatusType) => {
-        console.log(detectedLetter)
-
         if (data.lineButton === 1) {
             handleMorseInput('dash')
         } else if (data.pointButton === 1) {
@@ -52,72 +52,34 @@ export const LetterAPage = () => {
 
     const handleMorseInput = (type: 'dot' | 'dash') => {
 
-        console.log(currentChar)
-        console.log(buttonStatus)
-
         setCurrentChar((prevChar) => {
             const updatedChar = prevChar + morseCodeMap[type];
 
             if (timeoutIdRef.current) clearTimeout(timeoutIdRef.current);
 
-            timeoutIdRef.current = setTimeout(() => {
-                const translatedChar = translateMorseToLetter(updatedChar);
-
-                if (translatedChar === 'A') {
-                    setDetectedLetter('A'); // Si se detecta "A", actualizamos el estado
-                    setTimeout(() => {
-                        navigate('/letterE')
-                    }, 500);
-                } else {
-                    setCurrentChar('')
-                    setDetectedLetter('');
-                }
-
-                setCurrentChar(''); // Reinicia el carácter Morse para la siguiente entrada
-            }, 2500);
+            if (updatedChar === '.-') {
+                setcorrectStatus(correctEnum.correct)
+                
+                setTimeout(() => {
+                    navigate('/letterE');
+                }, 500);
+            } else {
+                
+                timeoutIdRef.current = setTimeout(() => {
+                    
+                    setCurrentChar('');
+                }, 2500);
+            }
 
             return updatedChar;
         });
     };
 
-    const translateMorseToLetter = (morse: string) => {
-        const morseToLetterMap: Record<string, string> = {
-            '.-': 'A',
-            '-...': 'B',
-            '-.-.': 'C',
-            '-..': 'D',
-            '.': 'E',
-            '..-.': 'F',
-            '--.': 'G',
-            '....': 'H',
-            '..': 'I',
-            '.---': 'J',
-            '-.-': 'K',
-            '.-..': 'L',
-            '--': 'M',
-            '-.': 'N',
-            '--.--': 'Ñ',
-            '---': 'O',
-            '.--.': 'P',
-            '--.-': 'Q',
-            '.-.': 'R',
-            '...': 'S',
-            '-': 'T',
-            '..-': 'U',
-            '...-': 'V',
-            '.--': 'W',
-            '-..-': 'X',
-            '-.--': 'Y',
-            '--..': 'Z',
-        };
-
-        return morseToLetterMap[morse] || '';
-    };
-
+    console.log(currentChar)
     return (
         <main className='page' id='LetterAPage'>
             <LettersCarousel previousLetter={''} actualLetter={'A'} followingLetter={'E'} backgroundColor={''}></LettersCarousel>
-            <LetterCard text={'Abeja'} image={letterAImage} type={'letter'} backgroundColor={''}></LetterCard>
+            <LetterCard text={'Abeja'} image={letterAImage} type={'letter'} backgroundColor={''} textColor={''} spanColor={''} winState={correctStatus}></LetterCard>
             <MorseFeedback morse={'.-'} currentChar={currentChar}></MorseFeedback>
         </main>
     );
