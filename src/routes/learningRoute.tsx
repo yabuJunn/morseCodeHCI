@@ -7,6 +7,7 @@ import { LetterSPage } from "../pages/LearningSection/LetterSPage/LetterSPage";
 
 import { Message1 } from "../pages/LearningSection/Message1/Message1";
 import { Word1Page } from "../pages/LearningSection/Word1/Word1";
+import { Word2Page } from "../pages/LearningSection/Word2Page/Word2Page";
 
 export const learningRouter = [
     {
@@ -32,6 +33,10 @@ export const learningRouter = [
     {
         path: "/word1",
         element: <Word1Page></Word1Page>,
+    },
+    {
+        path: "/word2",
+        element: <Word2Page></Word2Page>,
     },
     {
         path: "/message1",

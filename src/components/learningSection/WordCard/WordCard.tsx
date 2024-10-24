@@ -13,10 +13,10 @@ interface WordCardProps {
 }
 
 export const WordCard = ({ text, stringFocus, image, backgroundColor, textColor, spanColor, winState }: WordCardProps) => {
-
+    console.log(backgroundColor)
     if (stringFocus === 1) {
         return <>
-            <div className='wordCard'>
+            <div className='wordCard' style={{ backgroundColor: backgroundColor }}>
                 <div className='imgSpace'>
                     <img src={image} alt={image} />
                 </div>
@@ -32,7 +32,7 @@ export const WordCard = ({ text, stringFocus, image, backgroundColor, textColor,
         </>
     } else if (stringFocus === -1) {
         return <>
-            <div className='wordCard'>
+            <div className='wordCard' style={{ backgroundColor: backgroundColor }}>
                 <div className='imgSpace'>
                     <img src={image} alt={image} />
                 </div>
@@ -47,7 +47,7 @@ export const WordCard = ({ text, stringFocus, image, backgroundColor, textColor,
         </>
     } else {
         return <>
-            <div className='wordCard'>
+            <div className='wordCard' style={{ backgroundColor: backgroundColor }}>
                 <div className='imgSpace'>
                     <img src={image} alt={image} />
                 </div>
