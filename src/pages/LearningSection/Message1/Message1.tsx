@@ -56,7 +56,7 @@ export const Message1 = () => {
             if (updatedChar === '.') {
                 
                 setTimeout(() => {
-                    navigate('/');
+                    navigate('/word1');
                 }, 500);
             } else {
                 
