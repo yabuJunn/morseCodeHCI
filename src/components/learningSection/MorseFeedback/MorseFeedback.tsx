@@ -67,6 +67,29 @@ export const MorseFeedback = ({ morse, currentChar }: MorseFeedbackProps) => {
                 </div>
             }
 
+        case morseLetters.N:
+            if (currentChar === "") {
+                return <div id="MorseFeedbackContainer">
+                    <div className='line'></div>
+                    <div className='point'></div>
+                </div>
+            } else if (currentChar === "-") {
+                return <div id="MorseFeedbackContainer">
+                    <div className='line' style={{ backgroundColor: '#F0D867' }}></div>
+                    <div className='point'></div>
+                </div>
+            } else if (currentChar === "-.") {
+                return <div id="MorseFeedbackContainer">
+                    <div className='line' style={{ backgroundColor: '#F0D867' }}></div>
+                    <div className='point' style={{ backgroundColor: '#61D2FF' }}></div>
+                </div>
+            } else {
+                return <div id="MorseFeedbackContainer">
+                    <div className='line'></div>
+                    <div className='point'></div>
+                </div>
+            }
+
         case morseLetters.E:
             if (currentChar === "") {
                 return <div id="MorseFeedbackContainer">

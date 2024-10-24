@@ -2,6 +2,7 @@
 import { LetterAPage } from "../pages/LearningSection/LetterAPage/LetterAPage";
 import { LetterEPage } from "../pages/LearningSection/LetterEPage/LetterEPage";
 import { LetterIPage } from "../pages/LearningSection/LetterIPage/LetterIPage";
+import { LetterNPage } from "../pages/LearningSection/LetterNPage/LetterNPage";
 import { LetterOPage } from "../pages/LearningSection/LetterOPage/LetterOPage";
 import { LetterSPage } from "../pages/LearningSection/LetterSPage/LetterSPage";
 
@@ -29,6 +30,10 @@ export const learningRouter = [
     {
         path: "/letterS",
         element: <LetterSPage></LetterSPage>,
+    },
+    {
+        path: "/letterN",
+        element: <LetterNPage></LetterNPage>,
     },
     {
         path: "/word1",

@@ -1,4 +1,4 @@
-import './LetterIPage.css'
+import './LetterNPage.css'
 import { useEffect, useState, useRef } from 'react';
 import { io } from 'socket.io-client';
 import { LetterCard } from '../../../components/learningSection/LetterCard/LetterCard'
@@ -7,7 +7,7 @@ import { MorseFeedback } from '../../../components/learningSection/MorseFeedback
 import { useNavigate } from 'react-router-dom';
 
 //Import Images
-import letterIImage from '../../../assets/png/letterI.png'
+import letterNImage from '../../../assets/png/letterN.png'
 import { correctEnum } from '../../../types/cardsMorse';
 
 import dotSound from '../../../assets/mp3/dot-sound.mp3'
@@ -23,7 +23,7 @@ const morseCodeMap: Record<string, string> = {
     'dash': '-',
 };
 
-export const LetterIPage = () => {
+export const LetterNPage = () => {
     const navigate = useNavigate()
     const [buttonStatus, setButtonStatus] = useState<ButtonStatusType | undefined>()
     const [currentChar, setCurrentChar] = useState<string>('')
@@ -61,7 +61,6 @@ export const LetterIPage = () => {
         if (type === 'dot' && dotSoundRef.current) {
             dotSoundRef.current.play();
         } else if (type === 'dash' && dashSoundRef.current) {
-            console.log("Suena punto");
             dashSoundRef.current.play();
         }
 
@@ -70,16 +69,14 @@ export const LetterIPage = () => {
 
             if (timeoutIdRef.current) clearTimeout(timeoutIdRef.current);
 
-            if (updatedChar === '..') {
+            if (updatedChar === '-.') {
                 setcorrectStatus(correctEnum.correct)
 
                 setTimeout(() => {
-                    navigate('/letterS');
+                    navigate('/');
                 }, 500);
             } else {
-
                 timeoutIdRef.current = setTimeout(() => {
-
                     setCurrentChar('');
                 }, 2500);
             }
@@ -88,12 +85,11 @@ export const LetterIPage = () => {
         });
     };
 
-    console.log(currentChar)
     return (
-        <main className='page' id='LetterIPage'>
-            <LettersCarousel previousLetter={'O'} actualLetter={'S'} followingLetter={''} backgroundColor={''}></LettersCarousel>
-            <LetterCard text={'Nave'} image={letterIImage} type={'letter'} backgroundColor={''} textColor={''} spanColor={''} winState={correctStatus}></LetterCard>
-            <MorseFeedback morse={'..'} currentChar={currentChar}></MorseFeedback>
+        <main className='page' id='LetterAPage'>
+            <LettersCarousel previousLetter={''} actualLetter={'N'} followingLetter={''} backgroundColor={''}></LettersCarousel>
+            <LetterCard text={'Nave'} image={letterNImage} type={'letter'} backgroundColor={''} textColor={''} spanColor={''} winState={correctStatus}></LetterCard>
+            <MorseFeedback morse={'-.'} currentChar={currentChar}></MorseFeedback>
 
             <audio ref={dotSoundRef} >
                 <source src={dotSound} type="audio/mpeg" />

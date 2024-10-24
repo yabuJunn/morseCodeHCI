@@ -20,7 +20,7 @@ export const LetterCard = ({ text, image, type, backgroundColor, textColor, span
                 return <>
                     <div className='letterCard' style={{ backgroundColor: backgroundColor }}>
                         <div className='imgSpace'>
-                            <img src={checkImage} alt="letterA" />
+                            <img src={checkImage} alt={image} />
                         </div>
 
                         <p style={{ color: textColor }}>
@@ -33,7 +33,7 @@ export const LetterCard = ({ text, image, type, backgroundColor, textColor, span
                 return <>
                     <div className='letterCard' style={{ backgroundColor: backgroundColor }}>
                         <div className='imgSpace'>
-                            <img src={image} alt="letterA" />
+                            <img src={image} alt={image} />
                         </div>
 
                         <p style={{ color: textColor }}>

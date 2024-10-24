@@ -31,7 +31,6 @@ export const LetterAPage = () => {
 
     const [correctStatus, setcorrectStatus] = useState<correctEnum>(correctEnum.undefined)
 
-    // Creamos las referencias para los sonidos
     const dotSoundRef = useRef<HTMLAudioElement | null>(null);
     const dashSoundRef = useRef<HTMLAudioElement | null>(null);
 
