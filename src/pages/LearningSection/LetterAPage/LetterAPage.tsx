@@ -52,22 +52,13 @@ export const LetterAPage = () => {
     const handleButtonPress = (data: ButtonStatusType) => {
         if (data.lineButton === 1) {
             handleMorseInput('dash')
-            if (dashSoundRef.current) {
-                dashSoundRef.current.play();
-            }
         } else if (data.pointButton === 1) {
-            if (dotSoundRef.current) {
-                console.log("Suena punto");
-
-                dotSoundRef.current.play();
-            }
             handleMorseInput('dot')
         }
     };
 
     const handleMorseInput = (type: 'dot' | 'dash') => {
 
-        // Reproducimos el sonido correspondiente
         if (type === 'dot' && dotSoundRef.current) {
             dotSoundRef.current.play();
         } else if (type === 'dash' && dashSoundRef.current) {
@@ -96,19 +87,12 @@ export const LetterAPage = () => {
         });
     };
 
-    // console.log(currentChar)
-    // if (dotSoundRef.current) {
-    //     dotSoundRef.current.play();
-    // }
-
-
     return (
         <main className='page' id='LetterAPage'>
             <LettersCarousel previousLetter={''} actualLetter={'A'} followingLetter={'E'} backgroundColor={''}></LettersCarousel>
             <LetterCard text={'Abeja'} image={letterAImage} type={'letter'} backgroundColor={''} textColor={''} spanColor={''} winState={correctStatus}></LetterCard>
             <MorseFeedback morse={'.-'} currentChar={currentChar}></MorseFeedback>
 
-            {/* Elementos de audio para los sonidos de punto y línea */}
             <audio ref={dotSoundRef} >
                 <source src={dotSound} type="audio/mpeg" />
             </audio>

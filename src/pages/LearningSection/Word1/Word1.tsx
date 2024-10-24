@@ -2,8 +2,6 @@ import './Word1.css'
 
 import { useEffect, useState, useRef } from 'react';
 import { io } from 'socket.io-client';
-import { LetterCard } from '../../../components/learningSection/LetterCard/LetterCard'
-import { LettersCarousel } from '../../../components/learningSection/LettersCarousel/LettersCarousel'
 import { MorseFeedback } from '../../../components/learningSection/MorseFeedback/MorseFeedback'
 import { useNavigate } from 'react-router-dom';
 
@@ -18,6 +16,9 @@ import correctImage from '../../../assets/png/correct.png'
 
 import { correctEnum } from '../../../types/cardsMorse';
 import { WordCard } from '../../../components/learningSection/WordCard/WordCard';
+
+import dotSound from '../../../assets/mp3/dot-sound.mp3'
+import dashSound from '../../../assets/mp3/dash-sound.mp3'
 
 interface ButtonStatusType {
     lineButton: number;
@@ -37,6 +38,9 @@ export const Word1Page = () => {
     const timeoutIdRef = useRef<NodeJS.Timeout | null>(null)
 
     const [correctStatus, setcorrectStatus] = useState<correctEnum>(correctEnum.undefined)
+
+    const dotSoundRef = useRef<HTMLAudioElement | null>(null);
+    const dashSoundRef = useRef<HTMLAudioElement | null>(null);
 
     useEffect(() => {
         const socket = io('http://localhost:5050')
@@ -61,6 +65,13 @@ export const Word1Page = () => {
     };
 
     const handleMorseInput = (type: 'dot' | 'dash') => {
+
+        if (type === 'dot' && dotSoundRef.current) {
+            dotSoundRef.current.play();
+        } else if (type === 'dash' && dashSoundRef.current) {
+            console.log("Suena punto");
+            dashSoundRef.current.play();
+        }
 
         setCurrentChar((prevChar) => {
             const updatedChar = prevChar + morseCodeMap[type];
@@ -92,6 +103,13 @@ export const Word1Page = () => {
             <main className='page' id='Word1Page'>
                 <WordCard text={'Oasis'} stringFocus={1} image={letterOImage} backgroundColor={''} textColor={''} spanColor={''} winState={correctEnum.undefined}></WordCard>
                 <MorseFeedback morse={'---.-........'} currentChar={currentChar}></MorseFeedback>
+
+                <audio ref={dotSoundRef} >
+                    <source src={dotSound} type="audio/mpeg" />
+                </audio>
+                <audio ref={dashSoundRef} >
+                    <source src={dashSound} type="audio/mpeg" />
+                </audio>
             </main>
         </>
     } else if (currentChar === "---" || currentChar === "---.") {
@@ -99,6 +117,13 @@ export const Word1Page = () => {
             <main className='page' id='Word1Page'>
                 <WordCard text={'Oasis'} stringFocus={2} image={letterAImage} backgroundColor={''} textColor={''} spanColor={''} winState={correctEnum.undefined}></WordCard>
                 <MorseFeedback morse={'---.-........'} currentChar={currentChar}></MorseFeedback>
+
+                <audio ref={dotSoundRef} >
+                    <source src={dotSound} type="audio/mpeg" />
+                </audio>
+                <audio ref={dashSoundRef} >
+                    <source src={dashSound} type="audio/mpeg" />
+                </audio>
             </main>
         </>
     } else if (currentChar === "---.-" || currentChar === "---.-." || currentChar === "---.-..") {
@@ -106,6 +131,13 @@ export const Word1Page = () => {
             <main className='page' id='Word1Page'>
                 <WordCard text={'Oasis'} stringFocus={3} image={letterSImage} backgroundColor={''} textColor={''} spanColor={''} winState={correctEnum.undefined}></WordCard>
                 <MorseFeedback morse={'---.-........'} currentChar={currentChar}></MorseFeedback>
+
+                <audio ref={dotSoundRef} >
+                    <source src={dotSound} type="audio/mpeg" />
+                </audio>
+                <audio ref={dashSoundRef} >
+                    <source src={dashSound} type="audio/mpeg" />
+                </audio>
             </main>
         </>
     } else if (currentChar === "---.-..." || currentChar === "---.-....") {
@@ -113,6 +145,13 @@ export const Word1Page = () => {
             <main className='page' id='Word1Page'>
                 <WordCard text={'Oasis'} stringFocus={4} image={letterIImage} backgroundColor={''} textColor={''} spanColor={''} winState={correctEnum.undefined}></WordCard>
                 <MorseFeedback morse={'---.-........'} currentChar={currentChar}></MorseFeedback>
+
+                <audio ref={dotSoundRef} >
+                    <source src={dotSound} type="audio/mpeg" />
+                </audio>
+                <audio ref={dashSoundRef} >
+                    <source src={dashSound} type="audio/mpeg" />
+                </audio>
             </main>
         </>
     } else if (currentChar === "---.-....." || currentChar === "---.-......" || currentChar === "---.-.......") {
@@ -120,6 +159,13 @@ export const Word1Page = () => {
             <main className='page' id='Word1Page'>
                 <WordCard text={'Oasis'} stringFocus={5} image={letterSImage} backgroundColor={''} textColor={''} spanColor={''} winState={correctEnum.undefined}></WordCard>
                 <MorseFeedback morse={'---.-........'} currentChar={currentChar}></MorseFeedback>
+
+                <audio ref={dotSoundRef} >
+                    <source src={dotSound} type="audio/mpeg" />
+                </audio>
+                <audio ref={dashSoundRef} >
+                    <source src={dashSound} type="audio/mpeg" />
+                </audio>
             </main>
         </>
     } else if (currentChar === "---.-........") {
@@ -127,6 +173,13 @@ export const Word1Page = () => {
             <main className='page' id='Word1Page'>
                 <WordCard text={'Oasis'} stringFocus={6} image={correctImage} backgroundColor={''} textColor={''} spanColor={''} winState={correctEnum.undefined}></WordCard>
                 <MorseFeedback morse={'---.-........'} currentChar={currentChar}></MorseFeedback>
+
+                <audio ref={dotSoundRef} >
+                    <source src={dotSound} type="audio/mpeg" />
+                </audio>
+                <audio ref={dashSoundRef} >
+                    <source src={dashSound} type="audio/mpeg" />
+                </audio>
             </main>
         </>
     } else {
@@ -134,6 +187,13 @@ export const Word1Page = () => {
             <main className='page' id='Word1Page'>
                 <WordCard text={'Oasis'} stringFocus={-1} image={incorrectImage} backgroundColor={''} textColor={''} spanColor={''} winState={correctEnum.undefined}></WordCard>
                 <MorseFeedback morse={'---.-........'} currentChar={currentChar}></MorseFeedback>
+
+                <audio ref={dotSoundRef} >
+                    <source src={dotSound} type="audio/mpeg" />
+                </audio>
+                <audio ref={dashSoundRef} >
+                    <source src={dashSound} type="audio/mpeg" />
+                </audio>
             </main>
         </>
     }

@@ -10,6 +10,9 @@ import { useNavigate } from 'react-router-dom';
 import letterIImage from '../../../assets/png/letterI.png'
 import { correctEnum } from '../../../types/cardsMorse';
 
+import dotSound from '../../../assets/mp3/dot-sound.mp3'
+import dashSound from '../../../assets/mp3/dash-sound.mp3'
+
 interface ButtonStatusType {
     lineButton: number;
     pointButton: number;
@@ -27,6 +30,9 @@ export const LetterIPage = () => {
     const timeoutIdRef = useRef<NodeJS.Timeout | null>(null)
 
     const [correctStatus, setcorrectStatus] = useState<correctEnum>(correctEnum.undefined)
+
+    const dotSoundRef = useRef<HTMLAudioElement | null>(null);
+    const dashSoundRef = useRef<HTMLAudioElement | null>(null);
 
     useEffect(() => {
         const socket = io('http://localhost:5050')
@@ -52,6 +58,13 @@ export const LetterIPage = () => {
 
     const handleMorseInput = (type: 'dot' | 'dash') => {
 
+        if (type === 'dot' && dotSoundRef.current) {
+            dotSoundRef.current.play();
+        } else if (type === 'dash' && dashSoundRef.current) {
+            console.log("Suena punto");
+            dashSoundRef.current.play();
+        }
+
         setCurrentChar((prevChar) => {
             const updatedChar = prevChar + morseCodeMap[type];
 
@@ -59,14 +72,14 @@ export const LetterIPage = () => {
 
             if (updatedChar === '..') {
                 setcorrectStatus(correctEnum.correct)
-                
+
                 setTimeout(() => {
                     navigate('/letterS');
                 }, 500);
             } else {
-                
+
                 timeoutIdRef.current = setTimeout(() => {
-                    
+
                     setCurrentChar('');
                 }, 2500);
             }
@@ -81,6 +94,13 @@ export const LetterIPage = () => {
             <LettersCarousel previousLetter={'O'} actualLetter={'S'} followingLetter={''} backgroundColor={''}></LettersCarousel>
             <LetterCard text={'Insecto'} image={letterIImage} type={'letter'} backgroundColor={''} textColor={''} spanColor={''} winState={correctStatus}></LetterCard>
             <MorseFeedback morse={'..'} currentChar={currentChar}></MorseFeedback>
+
+            <audio ref={dotSoundRef} >
+                <source src={dotSound} type="audio/mpeg" />
+            </audio>
+            <audio ref={dashSoundRef} >
+                <source src={dashSound} type="audio/mpeg" />
+            </audio>
         </main>
     );
 }
