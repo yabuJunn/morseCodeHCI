@@ -67,11 +67,11 @@ export const Word1Page = () => {
 
             if (timeoutIdRef.current) clearTimeout(timeoutIdRef.current);
 
-            if (updatedChar === '...') {
+            if (updatedChar === '---.-........') {
                 setcorrectStatus(correctEnum.correct)
 
                 setTimeout(() => {
-                    navigate('/message1');
+                    navigate('/word2');
                 }, 500);
             } else {
 

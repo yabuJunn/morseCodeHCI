@@ -10,6 +10,9 @@ import { useNavigate } from 'react-router-dom';
 import letterAImage from '../../../assets/png/letterA.png'
 import { correctEnum } from '../../../types/cardsMorse';
 
+import dotSound from '../../../assets/mp3/dot-sound.mp3'
+import dashSound from '../../../assets/mp3/dash-sound.mp3'
+
 interface ButtonStatusType {
     lineButton: number;
     pointButton: number;
@@ -28,6 +31,10 @@ export const LetterAPage = () => {
 
     const [correctStatus, setcorrectStatus] = useState<correctEnum>(correctEnum.undefined)
 
+    // Creamos las referencias para los sonidos
+    const dotSoundRef = useRef<HTMLAudioElement | null>(null);
+    const dashSoundRef = useRef<HTMLAudioElement | null>(null);
+
     useEffect(() => {
         const socket = io('http://localhost:5050')
 
@@ -45,12 +52,28 @@ export const LetterAPage = () => {
     const handleButtonPress = (data: ButtonStatusType) => {
         if (data.lineButton === 1) {
             handleMorseInput('dash')
+            if (dashSoundRef.current) {
+                dashSoundRef.current.play();
+            }
         } else if (data.pointButton === 1) {
+            if (dotSoundRef.current) {
+                console.log("Suena punto");
+
+                dotSoundRef.current.play();
+            }
             handleMorseInput('dot')
         }
     };
 
     const handleMorseInput = (type: 'dot' | 'dash') => {
+
+        // Reproducimos el sonido correspondiente
+        if (type === 'dot' && dotSoundRef.current) {
+            dotSoundRef.current.play();
+        } else if (type === 'dash' && dashSoundRef.current) {
+            console.log("Suena punto");
+            dashSoundRef.current.play();
+        }
 
         setCurrentChar((prevChar) => {
             const updatedChar = prevChar + morseCodeMap[type];
@@ -59,14 +82,12 @@ export const LetterAPage = () => {
 
             if (updatedChar === '.-') {
                 setcorrectStatus(correctEnum.correct)
-                
+
                 setTimeout(() => {
                     navigate('/letterE');
                 }, 500);
             } else {
-                
                 timeoutIdRef.current = setTimeout(() => {
-                    
                     setCurrentChar('');
                 }, 2500);
             }
@@ -75,12 +96,25 @@ export const LetterAPage = () => {
         });
     };
 
-    console.log(currentChar)
+    // console.log(currentChar)
+    // if (dotSoundRef.current) {
+    //     dotSoundRef.current.play();
+    // }
+
+
     return (
         <main className='page' id='LetterAPage'>
             <LettersCarousel previousLetter={''} actualLetter={'A'} followingLetter={'E'} backgroundColor={''}></LettersCarousel>
             <LetterCard text={'Abeja'} image={letterAImage} type={'letter'} backgroundColor={''} textColor={''} spanColor={''} winState={correctStatus}></LetterCard>
             <MorseFeedback morse={'.-'} currentChar={currentChar}></MorseFeedback>
+
+            {/* Elementos de audio para los sonidos de punto y línea */}
+            <audio ref={dotSoundRef} >
+                <source src={dotSound} type="audio/mpeg" />
+            </audio>
+            <audio ref={dashSoundRef} >
+                <source src={dashSound} type="audio/mpeg" />
+            </audio>
         </main>
     );
 }
