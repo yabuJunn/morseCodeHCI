@@ -13,7 +13,6 @@ interface WordCardProps {
 }
 
 export const WordCard = ({ text, stringFocus, image, backgroundColor, textColor, spanColor, winState }: WordCardProps) => {
-    console.log(backgroundColor)
     if (stringFocus === 1) {
         return <>
             <div className='wordCard' style={{ backgroundColor: backgroundColor }}>

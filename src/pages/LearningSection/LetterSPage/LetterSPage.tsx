@@ -74,7 +74,7 @@ export const LetterSPage = () => {
                 setcorrectStatus(correctEnum.correct)
 
                 setTimeout(() => {
-                    navigate('/message1');
+                    navigate('/letterN');
                 }, 500);
             } else {
 
@@ -90,7 +90,7 @@ export const LetterSPage = () => {
 
     return (
         <main className='page' id='LetterSPage'>
-            <LettersCarousel previousLetter={'O'} actualLetter={'S'} followingLetter={''} backgroundColor={'#7FD6C3'}></LettersCarousel>
+            <LettersCarousel previousLetter={'O'} actualLetter={'S'} followingLetter={'N'} backgroundColor={'#7FD6C3'}></LettersCarousel>
             <LetterCard text={'Semáforo'} image={letterSImage} type={'letter'} backgroundColor={'#7FD6C3'} textColor={'#828181'} spanColor={'#1C1C1C'} winState={correctStatus}></LetterCard>
             <MorseFeedback morse={'...'} currentChar={currentChar}></MorseFeedback>
 

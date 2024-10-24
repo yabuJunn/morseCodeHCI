@@ -9,6 +9,7 @@ import { LetterSPage } from "../pages/LearningSection/LetterSPage/LetterSPage";
 import { Message1 } from "../pages/LearningSection/Message1/Message1";
 import { Word1Page } from "../pages/LearningSection/Word1/Word1";
 import { Word2Page } from "../pages/LearningSection/Word2Page/Word2Page";
+import { Word3Page } from "../pages/LearningSection/Word3Page/Word3Page";
 
 export const learningRouter = [
     {
@@ -42,6 +43,10 @@ export const learningRouter = [
     {
         path: "/word2",
         element: <Word2Page></Word2Page>,
+    },
+    {
+        path: "/word3",
+        element: <Word3Page></Word3Page>,
     },
     {
         path: "/message1",
