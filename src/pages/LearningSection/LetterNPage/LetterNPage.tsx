@@ -4,7 +4,7 @@ import { io } from 'socket.io-client';
 import { LetterCard } from '../../../components/learningSection/LetterCard/LetterCard'
 import { LettersCarousel } from '../../../components/learningSection/LettersCarousel/LettersCarousel'
 import { MorseFeedback } from '../../../components/learningSection/MorseFeedback/MorseFeedback'
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 //Import Images
 import letterNImage from '../../../assets/png/letterN.png'
@@ -25,6 +25,7 @@ const morseCodeMap: Record<string, string> = {
 
 export const LetterNPage = () => {
     const navigate = useNavigate()
+    const location = useLocation()
     const [buttonStatus, setButtonStatus] = useState<ButtonStatusType | undefined>()
     const [currentChar, setCurrentChar] = useState<string>('')
     const timeoutIdRef = useRef<NodeJS.Timeout | null>(null)
@@ -73,7 +74,11 @@ export const LetterNPage = () => {
                 setcorrectStatus(correctEnum.correct)
 
                 setTimeout(() => {
-                    navigate('/message1');
+                    if (location.state.letterCycle === 2) {
+                        navigate('/message1');
+                    } else {
+                        navigate('/letterA', { state: { letterCycle: location.state.letterCycle + 1 } });
+                    }
                 }, 500);
             } else {
                 timeoutIdRef.current = setTimeout(() => {

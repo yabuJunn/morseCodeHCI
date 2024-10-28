@@ -4,7 +4,7 @@ import { io } from 'socket.io-client';
 import { LetterCard } from '../../../components/learningSection/LetterCard/LetterCard'
 import { LettersCarousel } from '../../../components/learningSection/LettersCarousel/LettersCarousel'
 import { MorseFeedback } from '../../../components/learningSection/MorseFeedback/MorseFeedback'
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 //Import Images
 import letterAImage from '../../../assets/png/letterA.png'
@@ -25,6 +25,7 @@ const morseCodeMap: Record<string, string> = {
 
 export const LetterAPage = () => {
     const navigate = useNavigate()
+    const location = useLocation()
     const [buttonStatus, setButtonStatus] = useState<ButtonStatusType | undefined>()
     const [currentChar, setCurrentChar] = useState<string>('')
     const timeoutIdRef = useRef<NodeJS.Timeout | null>(null)
@@ -61,7 +62,6 @@ export const LetterAPage = () => {
         if (type === 'dot' && dotSoundRef.current) {
             dotSoundRef.current.play();
         } else if (type === 'dash' && dashSoundRef.current) {
-            console.log("Suena punto");
             dashSoundRef.current.play();
         }
 
@@ -74,7 +74,11 @@ export const LetterAPage = () => {
                 setcorrectStatus(correctEnum.correct)
 
                 setTimeout(() => {
-                    navigate('/letterE');
+                    if (location.state) {
+                        navigate('/letterE', { state: location.state });
+                    } else {
+                        navigate('/letterE', { state: { letterCycle: 0 } });
+                    }
                 }, 500);
             } else {
                 timeoutIdRef.current = setTimeout(() => {
