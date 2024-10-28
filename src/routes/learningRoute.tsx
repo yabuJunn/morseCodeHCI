@@ -11,6 +11,7 @@ import { Word1Page } from "../pages/LearningSection/Word1/Word1";
 import { Word2Page } from "../pages/LearningSection/Word2Page/Word2Page";
 import { Word3Page } from "../pages/LearningSection/Word3Page/Word3Page";
 import { Word4Page } from "../pages/LearningSection/Word4Page/Word4Page";
+import { Word5Page } from "../pages/LearningSection/Word5Page/Word5Page";
 
 export const learningRouter = [
     {
@@ -52,6 +53,10 @@ export const learningRouter = [
     {
         path: "/word4",
         element: <Word4Page></Word4Page>,
+    },
+    {
+        path: "/word5",
+        element: <Word5Page></Word5Page>,
     },
     {
         path: "/message1",
