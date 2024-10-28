@@ -91,7 +91,7 @@ export const LetterNPage = () => {
     };
 
     return (
-        <main className='page' id='LetterAPage'>
+        <main className='page' id='LetterNPage'>
             <LettersCarousel previousLetter={'S'} actualLetter={'N'} followingLetter={''} backgroundColor={''}></LettersCarousel>
             <LetterCard text={'Nave'} image={letterNImage} type={'letter'} backgroundColor={''} textColor={''} spanColor={''} winState={correctStatus}></LetterCard>
             <MorseFeedback morse={'-.'} currentChar={currentChar}></MorseFeedback>

@@ -69,7 +69,7 @@ export const EndLearningPage = () => {
             if (updatedChar === '.') {
 
                 setTimeout(() => {
-                    navigate('/word1');
+                    navigate('/');
                 }, 500);
             } else {
 

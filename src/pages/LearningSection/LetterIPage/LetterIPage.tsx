@@ -91,8 +91,8 @@ export const LetterIPage = () => {
 
     return (
         <main className='page' id='LetterIPage'>
-            <LettersCarousel previousLetter={'O'} actualLetter={'S'} followingLetter={''} backgroundColor={''}></LettersCarousel>
-            <LetterCard text={'Nave'} image={letterIImage} type={'letter'} backgroundColor={''} textColor={''} spanColor={''} winState={correctStatus}></LetterCard>
+            <LettersCarousel previousLetter={'O'} actualLetter={'I'} followingLetter={'N'} backgroundColor={''}></LettersCarousel>
+            <LetterCard text={'Insecto'} image={letterIImage} type={'letter'} backgroundColor={''} textColor={''} spanColor={''} winState={correctStatus}></LetterCard>
             <MorseFeedback morse={'..'} currentChar={currentChar}></MorseFeedback>
 
             <audio ref={dotSoundRef} >
