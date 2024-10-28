@@ -1,4 +1,4 @@
-import './Message1.css'
+import './EndLearning.css'
 
 import { useEffect, useState, useRef } from 'react';
 import { io } from 'socket.io-client';
@@ -20,7 +20,7 @@ const morseCodeMap: Record<string, string> = {
     'dash': '-',
 };
 
-export const Message1Page = () => {
+export const EndLearningPage = () => {
 
     const navigate = useNavigate()
     const [buttonStatus, setButtonStatus] = useState<ButtonStatusType | undefined>()
@@ -84,8 +84,8 @@ export const Message1Page = () => {
     };
 
     return <>
-        <main className='page' id='Message1Page'>
-            <h2>Ahora te daremos una secuencia corta de palabras con las letras en morse que acabas de aprender.</h2>
+        <main className='page' id='EndLearningPage'>
+            <h2>¡Haz terminado el curso preliminar de morse!</h2>
             <div id='nextButton'>
                 <img src={nextImg} alt="" />
             </div>

@@ -81,7 +81,7 @@ export const Word5Page = () => {
 
                 setTimeout(() => {
 
-                    navigate('/end');
+                    navigate('/endLearning');
                 }, 500);
             } else {
 
@@ -109,7 +109,7 @@ export const Word5Page = () => {
                 </audio>
             </main>
         </>
-    } else if (currentChar === ".-" || currentChar === "-.-" || currentChar === "-.--") {
+    } else if (currentChar === "-." || currentChar === "-.-" || currentChar === "-.--") {
         return <>
             <main className='page' id='Word5Page'>
                 <WordCard text={'No'} stringFocus={2} image={letterOImage} backgroundColor={''} textColor={''} spanColor={''} winState={correctEnum.undefined}></WordCard>
@@ -140,7 +140,7 @@ export const Word5Page = () => {
     } else {
         return <>
             <main className='page' id='Word5Page'>
-                <WordCard text={'No'} stringFocus={-1} image={incorrectImage} backgroundColor={''} textColor={''} spanColor={''} winState={correctEnum.undefined}></WordCard>
+                <WordCard text={'No'} stringFocus={-1} image={correctImage} backgroundColor={''} textColor={''} spanColor={''} winState={correctEnum.undefined}></WordCard>
                 <MorseFeedback morse={'-.---'} currentChar={currentChar}></MorseFeedback>
 
                 <audio ref={dotSoundRef} >
