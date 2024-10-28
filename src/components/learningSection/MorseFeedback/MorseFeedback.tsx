@@ -33,7 +33,8 @@ enum morseLetters {
 enum morseWords {
     oasis = '---.-........',
     esa = '.....-',
-    si = '.....'
+    si = '.....',
+    siena = '......-..-'
 }
 
 interface MorseFeedbackProps {
@@ -831,6 +832,308 @@ export const MorseFeedback = ({ morse, currentChar }: MorseFeedbackProps) => {
 
                     <div className='point' style={{ backgroundColor: '#FF0000' }}></div>
                     <div className='point' style={{ backgroundColor: '#FF0000' }}></div>
+                </div>
+            }
+        case morseWords.siena:
+            if (currentChar === "") {
+                return <div id="MorseFeedbackContainer">
+                    <div className='point'></div>
+                    <div className='point'></div>
+                    <div className='point'></div>
+
+                    <div className='space'></div>
+
+                    <div className='point'></div>
+                    <div className='point'></div>
+
+                    <div className='space'></div>
+
+                    <div className='point'></div>
+
+                    <div className='space'></div>
+
+                    <div className='line'></div>
+                    <div className='point'></div>
+
+                    <div className='space'></div>
+
+                    <div className='point'></div>
+                    <div className='line'></div>
+                </div>
+            } else if (currentChar === ".") {
+                return <div id="MorseFeedbackContainer">
+                    <div className='point' style={{ backgroundColor: '#61D2FF' }}></div>
+                    <div className='point'></div>
+                    <div className='point'></div>
+
+                    <div className='space'></div>
+
+                    <div className='point'></div>
+                    <div className='point'></div>
+
+                    <div className='space'></div>
+
+                    <div className='point'></div>
+
+                    <div className='space'></div>
+
+                    <div className='line'></div>
+                    <div className='point'></div>
+
+                    <div className='space'></div>
+
+                    <div className='point'></div>
+                    <div className='line'></div>
+                </div>
+            } else if (currentChar === "..") {
+                return <div id="MorseFeedbackContainer">
+                    <div className='point' style={{ backgroundColor: '#61D2FF' }}></div>
+                    <div className='point' style={{ backgroundColor: '#61D2FF' }}></div>
+                    <div className='point'></div>
+
+                    <div className='space'></div>
+
+                    <div className='point'></div>
+                    <div className='point'></div>
+
+                    <div className='space'></div>
+
+                    <div className='point'></div>
+
+                    <div className='space'></div>
+
+                    <div className='line'></div>
+                    <div className='point'></div>
+
+                    <div className='space'></div>
+
+                    <div className='point'></div>
+                    <div className='line'></div>
+                </div>
+            } else if (currentChar === "...") {
+                return <div id="MorseFeedbackContainer">
+                    <div className='point' style={{ backgroundColor: '#61D2FF' }}></div>
+                    <div className='point' style={{ backgroundColor: '#61D2FF' }}></div>
+                    <div className='point' style={{ backgroundColor: '#61D2FF' }}></div>
+
+                    <div className='space'></div>
+
+                    <div className='point'></div>
+                    <div className='point'></div>
+
+                    <div className='space'></div>
+
+                    <div className='point'></div>
+
+                    <div className='space'></div>
+
+                    <div className='line'></div>
+                    <div className='point'></div>
+
+                    <div className='space'></div>
+
+                    <div className='point'></div>
+                    <div className='line'></div>
+                </div>
+            } else if (currentChar === "....") {
+                return <div id="MorseFeedbackContainer">
+                    <div className='point' style={{ backgroundColor: '#61D2FF' }}></div>
+                    <div className='point' style={{ backgroundColor: '#61D2FF' }}></div>
+                    <div className='point' style={{ backgroundColor: '#61D2FF' }}></div>
+
+                    <div className='space'></div>
+
+                    <div className='point' style={{ backgroundColor: '#61D2FF' }}></div>
+                    <div className='point'></div>
+
+                    <div className='space'></div>
+
+                    <div className='point'></div>
+
+                    <div className='space'></div>
+
+                    <div className='line'></div>
+                    <div className='point'></div>
+
+                    <div className='space'></div>
+
+                    <div className='point'></div>
+                    <div className='line'></div>
+                </div>
+            } else if (currentChar === ".....") {
+                return <div id="MorseFeedbackContainer">
+                    <div className='point' style={{ backgroundColor: '#61D2FF' }}></div>
+                    <div className='point' style={{ backgroundColor: '#61D2FF' }}></div>
+                    <div className='point' style={{ backgroundColor: '#61D2FF' }}></div>
+
+                    <div className='space'></div>
+
+                    <div className='point' style={{ backgroundColor: '#61D2FF' }}></div>
+                    <div className='point' style={{ backgroundColor: '#61D2FF' }}></div>
+
+                    <div className='space'></div>
+
+                    <div className='point'></div>
+
+                    <div className='space'></div>
+
+                    <div className='line'></div>
+                    <div className='point'></div>
+
+                    <div className='space'></div>
+
+                    <div className='point'></div>
+                    <div className='line'></div>
+                </div>
+            } else if (currentChar === "......") {
+                return <div id="MorseFeedbackContainer">
+                    <div className='point' style={{ backgroundColor: '#61D2FF' }}></div>
+                    <div className='point' style={{ backgroundColor: '#61D2FF' }}></div>
+                    <div className='point' style={{ backgroundColor: '#61D2FF' }}></div>
+
+                    <div className='space'></div>
+
+                    <div className='point' style={{ backgroundColor: '#61D2FF' }}></div>
+                    <div className='point' style={{ backgroundColor: '#61D2FF' }}></div>
+
+                    <div className='space'></div>
+
+                    <div className='point' style={{ backgroundColor: '#61D2FF' }}></div>
+
+                    <div className='space'></div>
+
+                    <div className='line'></div>
+                    <div className='point'></div>
+
+                    <div className='space'></div>
+
+                    <div className='point'></div>
+                    <div className='line'></div>
+                </div>
+            } else if (currentChar === "......-") {
+                return <div id="MorseFeedbackContainer">
+                    <div className='point' style={{ backgroundColor: '#61D2FF' }}></div>
+                    <div className='point' style={{ backgroundColor: '#61D2FF' }}></div>
+                    <div className='point' style={{ backgroundColor: '#61D2FF' }}></div>
+
+                    <div className='space'></div>
+
+                    <div className='point' style={{ backgroundColor: '#61D2FF' }}></div>
+                    <div className='point' style={{ backgroundColor: '#61D2FF' }}></div>
+
+                    <div className='space'></div>
+
+                    <div className='point' style={{ backgroundColor: '#61D2FF' }}></div>
+
+                    <div className='space'></div>
+
+                    <div className='line' style={{ backgroundColor: '#F0D867' }}></div>
+                    <div className='point'></div>
+
+                    <div className='space'></div>
+
+                    <div className='point'></div>
+                    <div className='line'></div>
+                </div>
+            } else if (currentChar === "......-.") {
+                return <div id="MorseFeedbackContainer">
+                    <div className='point' style={{ backgroundColor: '#61D2FF' }}></div>
+                    <div className='point' style={{ backgroundColor: '#61D2FF' }}></div>
+                    <div className='point' style={{ backgroundColor: '#61D2FF' }}></div>
+
+                    <div className='space'></div>
+
+                    <div className='point' style={{ backgroundColor: '#61D2FF' }}></div>
+                    <div className='point' style={{ backgroundColor: '#61D2FF' }}></div>
+
+                    <div className='space'></div>
+
+                    <div className='point' style={{ backgroundColor: '#61D2FF' }}></div>
+
+                    <div className='space'></div>
+
+                    <div className='line' style={{ backgroundColor: '#F0D867' }}></div>
+                    <div className='point' style={{ backgroundColor: '#61D2FF' }}></div>
+
+                    <div className='space'></div>
+
+                    <div className='point'></div>
+                    <div className='line'></div>
+                </div>
+            } else if (currentChar === "......-..") {
+                return <div id="MorseFeedbackContainer">
+                    <div className='point' style={{ backgroundColor: '#61D2FF' }}></div>
+                    <div className='point' style={{ backgroundColor: '#61D2FF' }}></div>
+                    <div className='point' style={{ backgroundColor: '#61D2FF' }}></div>
+
+                    <div className='space'></div>
+
+                    <div className='point' style={{ backgroundColor: '#61D2FF' }}></div>
+                    <div className='point' style={{ backgroundColor: '#61D2FF' }}></div>
+
+                    <div className='space'></div>
+
+                    <div className='point' style={{ backgroundColor: '#61D2FF' }}></div>
+
+                    <div className='space'></div>
+
+                    <div className='line' style={{ backgroundColor: '#F0D867' }}></div>
+                    <div className='point' style={{ backgroundColor: '#61D2FF' }}></div>
+
+                    <div className='space'></div>
+
+                    <div className='point' style={{ backgroundColor: '#61D2FF' }}></div>
+                    <div className='line'></div>
+                </div>
+            } else if (currentChar === "......-..-") {
+                return <div id="MorseFeedbackContainer">
+                    <div className='point' style={{ backgroundColor: '#3FFD00' }}></div>
+                    <div className='point' style={{ backgroundColor: '#3FFD00' }}></div>
+                    <div className='point' style={{ backgroundColor: '#3FFD00' }}></div>
+
+                    <div className='space'></div>
+
+                    <div className='point' style={{ backgroundColor: '#3FFD00' }}></div>
+                    <div className='point' style={{ backgroundColor: '#3FFD00' }}></div>
+
+                    <div className='space'></div>
+
+                    <div className='point' style={{ backgroundColor: '#3FFD00' }}></div>
+
+                    <div className='space'></div>
+
+                    <div className='line' style={{ backgroundColor: '#3FFD00' }}></div>
+                    <div className='point' style={{ backgroundColor: '#3FFD00' }}></div>
+
+                    <div className='space'></div>
+
+                    <div className='point' style={{ backgroundColor: '#3FFD00' }}></div>
+                    <div className='line' style={{ backgroundColor: '#3FFD00' }}></div>
+                </div>
+            } else {
+                return <div id="MorseFeedbackContainer">
+                    <div className='point' style={{ backgroundColor: '#FF0000' }}></div>
+                    <div className='point' style={{ backgroundColor: '#FF0000' }}></div>
+                    <div className='point' style={{ backgroundColor: '#FF0000' }}></div>
+
+                    <div className='space'></div>
+
+                    <div className='point' style={{ backgroundColor: '#FF0000' }}></div>
+                    <div className='point' style={{ backgroundColor: '#FF0000' }}></div>
+
+                    <div className='space'></div>
+
+                    <div className='point' style={{ backgroundColor: '#FF0000' }}></div>
+
+                    <div className='space'></div>
+
+                    <div className='line' style={{ backgroundColor: '#FF0000' }}></div>
+                    <div className='point' style={{ backgroundColor: '#FF0000' }}></div>
+
+                    <div className='space'></div>
+
+                    <div className='point' style={{ backgroundColor: '#FF0000' }}></div>
+                    <div className='line' style={{ backgroundColor: '#FF0000' }}></div>
                 </div>
             }
         default:
